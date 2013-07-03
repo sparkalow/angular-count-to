@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <title>Angular Count Up Demo</title>
+    <script src="../test/lib/angular/angular.min.js"></script>
+    <script src="../build/angular-count-to.min.js"></script>
+    <!--<script src="../src/count-to.js"></script>-->
+    <script src="js/app.js"></script>
+    <style type="text/css">
+        h1.count{
+            color: #C76C6C;
+        }
+    </style>
+</head>
+<body ng-controller="demoController"><br>
+<div class="container">
+    <h2>Angular count-to directive</h2>
+    <div class="hero-unit">
+        <h1 class="count" count-to="{{countTo}}" value="{{countFrom}}" duration="4"></h1><br>
+
+        <p>Count to <span class="text-info">{{countTo}}</span> from <span class="text-info">{{countFrom}}</span> over <span class="text-warning">4</span> seconds</p>
+
+        <form class="form-horizontal">
+            <!--<label for="duration">Duration</label>-->
+            <!--<input type="number" name="duration" ng-model="model.duration"/><span class="help-inline"><small>(milliseconds)</small></span>-->
+            <label for="count_to">Count to</label>
+            <input type="number" name="count_to" ng-model="countTo"/>
+            <label for="count_from">Count from</label>
+            <input type="number" name="count_from" ng-model="countFrom"/>
+            <br><br>
+            <button type="submit" ng-click="reCount()" class="btn btn-inverse btn-large">Randomize</button>
+        </form>
+
+        <br><br>
+        <p>Example directive code</p>
+        <code ng-non-bindable>
+            &lt;h1 count-to="{{model.countTo}}" duration="4" count-from="{{model.countFrom}}"&gt;&lt;/h1&gt;
+        </code>
+        <br>
+    </div>
+</body>
+</html>
