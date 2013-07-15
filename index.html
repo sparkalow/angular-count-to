@@ -1,84 +1,82 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset='utf-8'/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <meta name="description" content="Angular-count-to : Angular directive to animate counting to a number"/>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Angular-count-to : Angular directive to animate counting to a number" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">-->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-count-to.js"></script>
+    <script src="js/app.js"></script>
+    <style type="text/css">
+        h1.count{
+            color: #C76C6C;
+        }
+    </style>
     <title>Angular-count-to</title>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/sparkalow/angular-count-to">View on GitHub</a>
+<!-- HEADER -->
+<div>
+    <header>
+        <a href="https://github.com/sparkalow/angular-count-to">View on GitHub</a>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li>
+                        <a href="https://github.com/sparkalow/angular-count-to/">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/sparkalow/angular-count-to/zipball/master">Download this project as a .zip file</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/sparkalow/angular-count-to/tarball/master">Download this project as a tar.gz file</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</div>
 
-          <h1 id="project_title">Angular-count-to</h1>
-          <h2 id="project_tagline">Angular directive to animate counting to a number</h2>
+<!-- MAIN CONTENT -->
+<div class="container" ng-app="myApp">
+    <br><br><br>
+    <div class="hero-unit" ng-controller="demoController">
+        <h1>Angular-count-to</h1>
+        <h2>Angular directive to animate counting to a number</h2>
+        <h1 class="count" count-to="{{countTo}}" value="{{countFrom}}" duration="4"></h1><br>
+        <p>Count to <span class="text-info">{{countTo}}</span> from <span class="text-info">{{countFrom}}</span> over
+            <span class="text-warning">4</span> seconds</p>
+        <hr>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/sparkalow/angular-count-to/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/sparkalow/angular-count-to/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+        <form class="form-horizontal">
+            <!--<label for="duration">Duration</label>-->
+            <!--<input type="number" name="duration" ng-model="model.duration"/><span class="help-inline"><small>(milliseconds)</small></span>-->
+            <label for="count_to">Count to</label>
+            <input type="number" name="count_to" ng-model="countTo"/>
+            <label for="count_from">Count from</label>
+            <input type="number" name="count_from" ng-model="countFrom"/>
+            <br><br>
+            <button type="submit" ng-click="reCount()" class="btn btn-inverse btn-large">Randomize</button>
+        </form>
+
+        <br><br>
+
+        <p>Example directive code</p>
+                  <pre><code ng-non-bindable>&lt;h1 count-to="{{model.countTo}}" duration="4" count-from="{{model.countFrom}}"&gt;&lt;/h1&gt;
+                  </code></pre>
+        <br>
+
+        <!-- FOOTER  -->
+
+        <footer>
+            <a href="https://github.com/sparkalow/angular-count-to" class="btn"><img src="images/GitHub-Mark-32px.png"/> View on GitHub</a>
+        </footer>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="angular-count-to" class="anchor" href="#angular-count-to"><span class="octicon octicon-link"></span></a>angular count-to</h1>
-
-<p>This project is an animated counter for Angularjs. The directive counts from one number to another over a configured duration.</p>
-
-<h2>
-<a name="how-to-use-angular-count-to" class="anchor" href="#how-to-use-angular-count-to"><span class="octicon octicon-link"></span></a>How to use angular count-to</h2>
-
-<p>Include the javascript file.</p>
-
-<pre><code>&lt;script src="angular.count-to.min.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<p>Inject the <code>count-to</code> directive in your app.</p>
-
-<pre><code>var myApp = angular.module('myApp', ['count-to']);
-</code></pre>
-
-<p>Apply the directive to a dom element.</p>
-
-<pre><code> &lt;span count-to="{{countTo}}" value="{{countFrom}}" duration="4"&gt;&lt;/span&gt;
-</code></pre>
-
-<h3>
-<a name="attributes" class="anchor" href="#attributes"><span class="octicon octicon-link"></span></a>Attributes</h3>
-
-<p>The following attributes can be set as numbers on the directive element.</p>
-
-<ul>
-<li>
-<code>count-to</code>  the number to count to.</li>
-<li>
-<code>value</code>  the number to start counting from.</li>
-<li>
-<code>duration</code>  how long the count should take in seconds.</li>
-</ul>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Angular-count-to maintained by <a href="https://github.com/sparkalow">sparkalow</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</div>
+</body>
 </html>
