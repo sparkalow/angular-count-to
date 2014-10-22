@@ -1,5 +1,5 @@
 var countTo = angular.module('countTo', [])
-    .directive('countTo', ['$timeout', function ($timeout) {
+    .directive('countTo', ['$timeout', '$parse', 'numberFilter', function ($timeout, $parse, numberFilter) {
         return {
             replace: false,
             scope: true,
@@ -7,6 +7,7 @@ var countTo = angular.module('countTo', [])
 
                 var e = element[0];
                 var num, refreshInterval, duration, steps, step, countTo, value, increment;
+                var numberFormat = $parse(attrs.numberFormat)(scope);
 
                 var calculate = function () {
                     refreshInterval = 30;
@@ -28,9 +29,14 @@ var countTo = angular.module('countTo', [])
                         if (step >= steps) {
                             $timeout.cancel(scope.timoutId);
                             num = countTo;
+                            if (numberFormat)
+                                countTo = numberFilter(countTo);
                             e.textContent = countTo;
                         } else {
-                            e.textContent = Math.round(num);
+                            roundedNum = Math.round(num);
+                            if (numberFormat)
+                                roundedNum = numberFilter(roundedNum);
+                            e.textContent = roundedNum;
                             tick();
                         }
                     }, refreshInterval);
