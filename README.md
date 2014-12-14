@@ -31,4 +31,4 @@ The following attributes can be set as numbers on the directive element.
 - ```count-to```  the number to count to.
 - ```value```  the number to start counting from.
 - ```duration```  how long the count should take in seconds.
-
+- ```precision``` number of decimals if count-to is a floating number.

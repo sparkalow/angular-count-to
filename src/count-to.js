@@ -6,17 +6,18 @@ var countTo = angular.module('countTo', [])
             link: function (scope, element, attrs) {
 
                 var e = element[0];
-                var num, refreshInterval, duration, steps, step, countTo, value, increment;
+                var num, refreshInterval, duration, steps, step, countTo, value, increment, precision;
 
                 var calculate = function () {
                     refreshInterval = 30;
                     step = 0;
                     scope.timoutId = null;
-                    countTo = parseInt(attrs.countTo) || 0;
-                    scope.value = parseInt(attrs.value, 10) || 0;
+                    precision = parseInt(attrs.precision) || 0;
+                    countTo = parseFloat(attrs.countTo) || 0;
+                    scope.value = parseFloat(attrs.value, 10) || 0;
                     duration = (parseFloat(attrs.duration) * 1000) || 0;
 
-                    steps = Math.ceil(duration / refreshInterval);
+                    steps = duration / refreshInterval;
                     increment = ((countTo - scope.value) / steps);
                     num = scope.value;
                 }
@@ -28,9 +29,9 @@ var countTo = angular.module('countTo', [])
                         if (step >= steps) {
                             $timeout.cancel(scope.timoutId);
                             num = countTo;
-                            e.textContent = countTo;
+                            e.textContent = countTo.toFixed(precision);
                         } else {
-                            e.textContent = Math.round(num);
+                            e.textContent = num.toFixed(precision);
                             tick();
                         }
                     }, refreshInterval);
