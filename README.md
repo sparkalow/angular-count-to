@@ -22,6 +22,8 @@ Apply the directive to a dom element.
 ```
  <span count-to="{{countTo}}" value="{{countFrom}}" duration="4"></span>
 ```
+Optionally you can use a filter on the value
+<span count-to="{{countTo}}" value="{{countFrom}}" duration="4" filter="number:2"></span>
 
 
 ### Attributes
@@ -31,4 +33,5 @@ The following attributes can be set as numbers on the directive element.
 - ```count-to```  the number to count to.
 - ```value```  the number to start counting from.
 - ```duration```  how long the count should take in seconds.
+- ```filter```  a filter to apply to the displayed number
 
