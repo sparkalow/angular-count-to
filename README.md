@@ -1,7 +1,7 @@
 # Angular Count-To
 
 This project is an animated counter for Angularjs. The directive counts from one number to another over a configured duration.
-[Demo](http://sparkalow.github.io/angular-count-to/)
+[Demo](http://webkoils.github.io/angular-count-to/)
 
 ## How to use angular count-to
 
