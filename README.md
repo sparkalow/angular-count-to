@@ -23,8 +23,9 @@ Apply the directive to a dom element.
  <span count-to="{{countTo}}" value="{{countFrom}}" duration="4"></span>
 ```
 Optionally you can use a filter on the value
+```
 <span count-to="{{countTo}}" value="{{countFrom}}" duration="4" filter="number:2"></span>
-
+```
 
 ### Attributes
 
