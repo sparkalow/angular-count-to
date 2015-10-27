@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['countTo']);
 
 myApp.controller('demoController', function ($scope) {
 
-    $scope.countTo = 100;
+    $scope.countTo = 123456.789;
     $scope.countFrom = 0;
 
     $scope.reCount = function () {
