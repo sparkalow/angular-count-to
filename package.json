@@ -6,6 +6,7 @@
         "grunt": "~0.4.1",
         "grunt-contrib-uglify": "~0.2.2"
     },
+    "main": "build/angular-count-to.min.js",
     "homepage": "http://sparkalow.github.com/angular-truncate",
     "repository": {
         "type": "git",
