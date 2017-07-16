@@ -4,10 +4,8 @@ var countTo = angular.module('countTo', [])
             replace: false,
             scope: true,
             link: function (scope, element, attrs) {
-
                 var e = element[0];
                 var num, refreshInterval, duration, steps, step, countTo, value, increment;
-
                 var calculate = function () {
                     refreshInterval = 30;
                     step = 0;
@@ -28,9 +26,10 @@ var countTo = angular.module('countTo', [])
                         if (step >= steps) {
                             $timeout.cancel(scope.timoutId);
                             num = countTo;
-                            e.textContent = countTo;
+								e.textContent = (attrs.filter ? scope.$eval("countTo |"+attrs.filter+"",{countTo:countTo}) : countTo);
                         } else {
-                            e.textContent = Math.round(num);
+							e.textContent = (attrs.filter ? scope.$eval("num |"+attrs.filter+"",{num:num}) : Math.round(num));
+							
                             tick();
                         }
                     }, refreshInterval);

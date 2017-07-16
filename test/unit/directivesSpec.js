@@ -44,5 +44,31 @@ describe('count-to directive', function () {
         }, 0)
 
     }));
+	
+    it('should display unformatted number when no filter is set', inject(function ($compile, $rootScope, $timeout ) {
+        element = angular.element('<span count-to="10" duration="5" value="200" filter=""></span>');
+        scope = $rootScope.$new();
+        $compile(element)(scope);
+        $rootScope.$digest();
+
+        $timeout.flush();
+        $timeout(function(){
+            expect(element.text()).toBe('200');
+        }, 0)
+
+    }));
+	
+    it('should display formatted number', inject(function ($compile, $rootScope, $timeout ) {
+        element = angular.element('<span count-to="10" duration="5" value="200" filter="number:2"></span>');
+        scope = $rootScope.$new();
+        $compile(element)(scope);
+        $rootScope.$digest();
+
+        $timeout.flush();
+        $timeout(function(){
+            expect(element.text()).toBe('200.00');
+        }, 0)
+
+    }));
 
 });
