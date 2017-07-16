@@ -20,7 +20,7 @@ var myApp = angular.module('myApp', ['countTo']);
 
 Apply the directive to a dom element.
 ```
- <span count-to="{{countTo}}" value="{{countFrom}}" duration="4"></span>
+ <span count-to="{{countTo}}" value="{{countFrom}}" duration="4" startup-delay="5"></span>
 ```
 
 
@@ -31,4 +31,4 @@ The following attributes can be set as numbers on the directive element.
 - ```count-to```  the number to count to.
 - ```value```  the number to start counting from.
 - ```duration```  how long the count should take in seconds.
-
+- ```startup-delay```  how long the counter will wait until it starts.
