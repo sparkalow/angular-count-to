@@ -12,7 +12,7 @@ Include the javascript file.
 <script src="angular.count-to.min.js"></script>
 ```
 
-Inject the `count-to` directive in your app.
+Inject the `countTo` directive in your app.
 
 ```
 var myApp = angular.module('myApp', ['countTo']);
