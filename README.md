@@ -31,4 +31,5 @@ The following attributes can be set as numbers on the directive element.
 - ```count-to```  the number to count to.
 - ```value```  the number to start counting from.
 - ```duration```  how long the count should take in seconds.
+- ```format``` whether seperate a large number with comma. Valid values are "comma" or "".
 
