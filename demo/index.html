@@ -17,7 +17,9 @@
 <div class="container">
     <h2>Angular count-to directive</h2>
     <div class="hero-unit">
-        <h1 class="count" count-to="{{countTo}}" value="{{countFrom}}" duration="4"></h1><br>
+        <h1 class="count">No filters: <span count-to="{{countTo}}" value="{{countFrom}}" duration="4"></span></h1>
+        <h1 class="count">Basic number filter: <span count-to="{{countTo}}" value="{{countFrom}}" count-filter="['number']" duration="4"></span></h1>
+        <h1 class="count">Rounding number filter: <span count-to="{{countTo}}" value="{{countFrom}}" count-filter="['number',0]" duration="4"></span></h1><br>
 
         <p>Count to <span class="text-info">{{countTo}}</span> from <span class="text-info">{{countFrom}}</span> over <span class="text-warning">4</span> seconds</p>
 
@@ -25,7 +27,7 @@
             <!--<label for="duration">Duration</label>-->
             <!--<input type="number" name="duration" ng-model="model.duration"/><span class="help-inline"><small>(milliseconds)</small></span>-->
             <label for="count_to">Count to</label>
-            <input type="number" name="count_to" ng-model="countTo"/>
+            <input type="number" name="count_to" step="0.001" ng-model="countTo"/>
             <label for="count_from">Count from</label>
             <input type="number" name="count_from" ng-model="countFrom"/>
             <br><br>
@@ -37,6 +39,11 @@
         <code ng-non-bindable>
             &lt;h1 count-to="{{model.countTo}}" duration="4" count-from="{{model.countFrom}}"&gt;&lt;/h1&gt;
         </code>
+        <p><br/>With the <a target="_blank" href="https://docs.angularjs.org/api/ng/filter/number">AngularJS Number Filter</a></p>
+        <code ng-non-bindable>
+            &lt;h1 count-to="{{model.countTo}}" duration="4" count-from="{{model.countFrom}} count-filter="['number', 2]"&gt;&lt;/h1&gt;
+        </code>
+        <p><i><strong>Note:</strong> stacking filters is not supported; any stacked filter must be implemented as a single filter for use in this way.</i></p>
         <br>
     </div>
 </body>
