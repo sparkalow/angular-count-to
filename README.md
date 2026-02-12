@@ -1,3 +1,11 @@
+
+
+# This project is no longer maintained.
+
+
+
+
+
 # Angular Count-To
 
 This project is an animated counter for Angularjs. The directive counts from one number to another over a configured duration.
